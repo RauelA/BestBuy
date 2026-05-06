@@ -31,6 +31,9 @@ class Store:
         total_price = 0
 
         for product, quantity in shopping_list:
-            total_price += product.buy(quantity)
+            result = product.buy(quantity)
+            if result is False:
+                continue
+            total_price += result
 
         return float(total_price)
